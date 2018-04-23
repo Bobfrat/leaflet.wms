@@ -284,7 +284,7 @@ wms.Overlay = L.Layer.extend({
             'opacity': true,
             'attribution': true
         };
-        
+
         var params = {};
         for (var opt in options) {
              if (options.hasOwnProperty(opt) && !optNames[opt]) {
@@ -367,10 +367,11 @@ wms.Overlay = L.Layer.extend({
         L.DomEvent.on(overlay._image, 'error', (function() {
             if(this.onError !== undefined) {
                 this._currentOverlay && this._currentOverlay.setUrl(this.onErrorImage);
+                debugger;
                 this.onError({error: "Failed to load layer", url: overlay._image.src});
             }
         }).bind(this));
-        
+
         function _swap() {
             if (!this._map) {
                 return;
